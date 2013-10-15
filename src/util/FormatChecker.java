@@ -55,21 +55,18 @@ public class FormatChecker {
 		}
 		cin.close();
 
-		// Data ready
-		Hashtable<String, Boolean> dicTitle = new Hashtable<String, Boolean>();
-		dicTitle.put("心仪对象", false);
-		dicTitle.put("约会场景", false);
-		dicTitle.put("亲密指数", false);
-		dicTitle.put("话题类型", false);
-		dicTitle.put("正文内容", false);
-
+		// Title Data ready
 		Hashtable<String, ReadStatus> dicTitleStatus = new Hashtable<String, ReadStatus>();
 		dicTitleStatus.put("心仪对象", ReadStatus.ReadingGirlRanges);
 		dicTitleStatus.put("约会场景", ReadStatus.ReadingScenarioRanges);
 		dicTitleStatus.put("亲密指数", ReadStatus.ReadingIntimateMin);
 		dicTitleStatus.put("话题类型", ReadStatus.ReadingTopicType);
 		dicTitleStatus.put("正文内容", ReadStatus.ReadingTopicContent);
-
+		
+		// Used for check if contains all needed titles
+		Hashtable<String, Boolean> dicTitle = new Hashtable<String, Boolean>();
+		for (String keyTitle : dicTitleStatus.keySet()) dicTitle.put(keyTitle, false);
+		
 		StringBuilder tTitle = new StringBuilder("");
 		StringBuilder tTopicType = new StringBuilder("");
 		StringBuilder tTopicContent = new StringBuilder("");
